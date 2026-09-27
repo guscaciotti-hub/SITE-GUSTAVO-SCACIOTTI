@@ -20,14 +20,21 @@ Site pessoal do Gustavo Scaciotti (link da bio do Instagram). Uma página, mesmo
 7. Clientes
 8. CTA: WhatsApp / e-mail
 
+## Prévia
+
+Link fixo, atualizado a cada alteração: https://claude.ai/artifact/23pBsWM8qLbSNC6MgBpT7y
+(`python3 build.py <arquivo>` gera a versão de prévia, sem as tags de documento.)
+
+## De onde vem o conteúdo
+
+Design system, textos e números dos cases, logos e fotos: site da Evoluze (`guscaciotti-hub/SITE-BAIXADA`, o que está no ar em evoluzemarketing.com.br). Primária `#009DA3`, fundo escuro `#101828 → #0B1220`, fonte do sistema.
+
 ## Pendências (tudo que está marcado com contorno tracejado no site)
 
 Procure `PREENCHER` em `src/index.html`:
 
 - **Contatos**: no bloco `CONTATO` do `<script>` no fim do arquivo, preencher `whatsapp` (ex.: `5513999999999`), `email` e `instagram`. Todos os botões passam a usar esses valores.
-- **Hero**: valor de mídia gerenciada (R$) e número de agências.
 - **Agências**: nome, cidade, UF e logo de cada uma (6 cards; é só duplicar ou apagar um `.ag-card`).
-- **Cases**: 3 números por case, tirados do site da Evoluze. Revisar também os rótulos e o texto de cada case.
-- **Emme Arquitetura**: não há logo no repositório, então o nome aparece em tipografia. Para usar o logo, salve em `assets/logos/emme.webp` e troque o bloco no case e no grid de clientes.
+- **Mídia gerenciada**: o site da Evoluze diz "+R$ 25M" no topo e "R$ 5M+" mais abaixo. Este site usa R$ 25M; confirmar.
 
 Depois de editar: `python3 build.py` e subir o `index.html`.

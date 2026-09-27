@@ -30,3 +30,12 @@ html = SRC.read_text(encoding="utf-8")
 html = re.sub(r"\.\./(assets/[^\"')\s]+)", inline, html)
 OUT.write_text(html, encoding="utf-8")
 print(f"{OUT.name}: {OUT.stat().st_size / 1024:.0f} KB, {len(cache)} imagens embutidas")
+
+# Versão de pré-visualização (Artifact do claude.ai): sem doctype/html/head/body,
+# que a plataforma adiciona sozinha, e com as seções já visíveis sem depender do scroll.
+import sys
+if len(sys.argv) > 1:
+    prev = re.sub(r"<!DOCTYPE html>\s*|</?html[^>]*>\s*|</?head>\s*|</?body>\s*", "", html)
+    prev = prev.replace("<script>document.documentElement.classList.add('js')</script>\n", "")
+    pathlib.Path(sys.argv[1]).write_text(prev, encoding="utf-8")
+    print(f"prévia: {sys.argv[1]}")
